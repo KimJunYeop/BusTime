@@ -1,17 +1,97 @@
-$(document).ready(function(){
-    console.log('hello');
+var timeLgToOsanWeekDay = [0820, 0910, 1010, 1110, 1210, 1240, 1330, 1410, 1510, 1730, 1745, 1800, 1845, 1900, 1915, 1930, 1945, 2000, 2015, 2030, 2045, 2100, 2115, 2145, 2200, 2215, 2225, 2245, 2315];
+var timeOasnToLGWeekDay = [0640, 0710, 0725, 0840, 0925, 1025, 1125, 1225, 1255, 1345, 1425, 1525, 1815, 1830, 1845, 1900, 1915, 1930, 1945, 2000, 2015, 2030, 2045, 2100, 2115, 2145, 2200, 2215, 2225, 2245, 2315];
+
+var timeLgToOsanWeekend = [0910, 1010, 1110, 1210, 1240, 1330, 1410, 1510, 1610, 1730, 1800, 1830, 1900, 1930, 2000, 2030, 2100, 2115, 2130, 2145, 2200, 2215, 2215, 2230, 2245, 2300];
+var timeOsanToLgWeekend = [0840, 0925, 1025, 1125, 1225, 1255, 1345, 1425, 1525, 1745, 1815, 1845, 1915, 1945, 2015, 2045, 2115, 2130, 2145, 2200, 2215, 2230, 2245, 2300, 2315];
+
+$(document).ready(function () {
     busTimeInit();
+    busBind();
 })
 
-function busTimeInit(){
-   var timeLgToOsanWeekDay = ['08:20','09:10','10:10','11:10','12:10','12:40','13:30','14:10','15:10','17:30','17:45','18:00','18:45','19:00','19:15','19:30','19:45','20:00','20:15','20:30','20:45','21:00','21:15','21:45','22:00','22:15','22:25','22:45','23:15'];
-   var timeOasnToLGWeekDay = ['06:40','07:10','07:25','08:40','09:25','10:25','11:25','12:25','12:55','13:45','14:25','15:25','18:15','18:30','18:45','19:00','19:15','19:30','19:45','20:00','20:15','20:30','20:45','21:00','21:15','21:45','22:00','22:15','22:25','22:45','23:15'];
+function busTimeInit() {
+    $(".realTimePage").hide();
+}
 
-   var timeLgToOsanWeekend = ['09:10','10:10','11:10','12:10','12:40','13:30','14:10','15:10','16:10','17:30','18:00','18:30','19:00','19:30','20:00','20:30','21:00','21:15','21:30','21:45','22:00','22:15','22:15','22:30','22:45','23:00'];
-   var timeOsanToLgWeekend = ['08:40','09:25','10:25','11:25','12:25','12:55','13:45','14:25','15:25','17:45','18:15','18:45','19:15','19:45','20:15','20:45','21:15','21:30','21:45','22:00','22:15','22:30','22:45','23:00','23:15'];
+function busBind() {
+    $("#realTime").unbind().bind('click', function () {
+        $("#mainPage").hide();
+        $(".realTimePage").show();
+        setInterval(function () {
+            displayTime();
+        }, 1000);
+    });
 
+    $("#totalTime").unbind().bind('click', function () {
+
+    });
+
+    $("#backHome").unbind().bind('click', function () {
+        window.location.reload();
+    });
+
+    $("#osanToLg").unbind().bind('click', function () {
+        displayTime();
+    });
+
+    $("#lgToOsan").unbind().bind('click', function () {
+
+    })
+}
+
+function displayTime() {
+    //일  0 월  1 화  2 수  3 목  4 금  5 토  6
+    var weekend;
+    var day = new Date();
+    var year = day.getFullYear();
+    var month = day.getMonth();
+    var today = day.getDate();
+    var hour = day.getHours();
+    var minute = day.getMinutes();
+    var vindex = -1;
+    var aa = hour.toString() + minute.toString();
+
+    if (day.getDay() == 0 || day.getDay() == 6) {
+        weekend = true;
+    } else {
+        weekend = false;
+    }
     
-
-
-
+    if (weekend) {
+        timeLgToOsanWeekend.some(function (value, index) {
+            if (Number(aa) < value) {
+                vindex = index;
+            }
+            return (Number(aa) < value);
+        })
+        if (timeLgToOsanWeekend[vindex].toString().length == 3) {
+            var timeNextHour = timeLgToOsanWeekend[vindex].toString().substr(0, 1);
+            var timeNextMinute = timeLgToOsanWeekend[vindex].toString().substr(1, 2);
+        } else {
+            var timeNextHour = timeLgToOsanWeekend[vindex].toString().substr(0, 2);
+            var timeNextMinute = timeLgToOsanWeekend[vindex].toString().substr(2, 2);
+        }
+        var nextDate = new Date(year, month, today, timeNextHour, timeNextMinute, 0);
+    } else {
+        timeLgToOsanWeekDay.some(function (value, index) {
+            if (Number(aa) < value) {
+                vindex = index;
+            }
+            return (Number(aa) < value);
+        })
+        if (timeLgToOsanWeekDay[vindex].toString().length == 3) {
+            var timeNextHour = timeLgToOsanWeekDay[vindex].toString().substr(0, 1);
+            var timeNextMinute = timeLgToOsanWeekDay[vindex].toString().substr(1, 2);
+        } else {
+            var timeNextHour = timeLgToOsanWeekDay[vindex].toString().substr(0, 2);
+            var timeNextMinute = timeLgToOsanWeekDay[vindex].toString().substr(2, 2);
+        }
+        var nextDate = new Date(year, month, today, timeNextHour, timeNextMinute, 0);
+    }
+    var diffTime = Math.floor((nextDate.getTime() - (new Date().getTime())) / 1000);
+    var diffTimeMinute = Math.floor(diffTime / 60);
+    // console.log(diffTimeMinute)
+    //3600으로 나누면 이게 초다
+    $("#timeDisplay").html(diffTimeMinute + '분 ');
+    $("#timeDisplay").append((diffTime - diffTimeMinute * 60) + '초 남았습니다');
 }

@@ -4,11 +4,45 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="./main.js"></script>
 </head>
 <body>
-    <h1 class="w3-green">hello first website123</h1>
+    <button id="backHome" class="realTimePage">돌아가기</button>
+    <div id="contents">
+        <div id="mainPage">
+            <div>
+                <h1>안녕하세요.</h1>
+                <h2>버스 시간표를 정리했습니다.</h1>
+            </div>
+            <!-- <img src="./bus_autobus-512.png" class="w3-round bus" alt="Norway"> -->
+            <div class="w3-cell-row">
+                <div class="w3-container w3-cell">
+                    <button id="realTime" class="w3-button w3-block w3-teal">(실시간)&nbsp;&nbsp;&nbsp;</button>
+                </div>
+                <div class="w3-container w3-cell">
+                    <button id="totalTime" class="w3-button w3-block w3-red">(전체시간표)</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="realTimePage">
+            <div class="w3-cell-row">
+
+                <div id="osanToLg" class="w3-container w3-red w3-cell">
+                    <p class="w3-center">오산역 -> LG</p>
+                </div>
+
+                <div id="lgToOsan" class="w3-container w3-green w3-cell">
+                    <p class="w3-center">LG -> 오산역</p>
+                </div>
+
+            </div>
+            <h1 id="timeDisplay" class="w3-center"></h1>
+        </div>
+    </div>
 </body>
 </html>

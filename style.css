@@ -1,0 +1,12 @@
+.bus {
+    display: table; margin-left: auto; margin-right: auto;
+}
+
+.realTimePage {
+    margin-top : 20px;
+}
+
+#backHome {
+    float: right;
+    margin-top : 10px !important;
+}
