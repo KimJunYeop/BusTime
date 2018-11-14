@@ -9,28 +9,44 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
     <script src="./totalTime.js"></script>
+    <style>
+        body {
+            min-height: 1500px;
+        }
+    </style>
 </head>
 
 <body>
     <button id="backHome">돌아가기.</button>
-    <h1>real Time</h1>
-
-    <div class="realTimePage">
-        <div class="w3-cell-row">
-
-            <div id="osanToLg" class="w3-container w3-red w3-cell">
-                <p class="w3-center">오산역 -> LG</p>
+    <h1>Total Time</h1>
+    <div id="contents">
+        <div id="mainPage">
+            <!-- <img src="./bus_autobus-512.png" class="w3-round bus" alt="Norway"> -->
+            <div class="w3-cell-row">
+                <div class="w3-container w3-cell">
+                    <button id="week" class="w3-button w3-block w3-red">(주중)</button>
+                </div>
+                <div class="w3-container w3-cell">
+                    <button id="weekend" class="w3-button w3-block w3-teal">(주말)</button>
+                </div>
             </div>
+            <div class="w3-cell-row w3-responsive w3-margin-top w3-margin-bottom">
+                <table id="weekTable" class="w3-table-all w3-card-4">
+                    <thead>
+                        <tr>
+                            <th>Osan to LG</th>
+                            <th>LG to Osan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-            <div id="lgToOsan" class="w3-container w3-green w3-cell">
-                <p class="w3-center">LG -> 오산역</p>
+                    </tbody>
+                </table>
             </div>
-
         </div>
-        <h1 id="timeDisplay" class="w3-center"></h1>
     </div>
-
 </body>
 
 </html>
