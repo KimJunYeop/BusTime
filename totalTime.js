@@ -9,18 +9,8 @@ $(document).ready(function () {
     console.log('timeOasnToLgWeekDay length : ', timeOasnToLgWeekDay.length);
     console.log('timeLgToOsanWeekend length : ', timeLgToOsanWeekend.length);
     console.log('timeOsanToLgWeekend length : ', timeOsanToLgWeekend.length);
-    totalTimeInit();
     totalTimeBind();
 });
-
-function totalTimeInit() {
-    var day = new Date().getDay();
-    if(day == 0 || day == 6) {
-        displayTable(2)
-    } else {
-        displayTable(1)
-    }
-}
 
 function totalTimeBind() {
     $("#backHome").unbind().bind('click', function () {
