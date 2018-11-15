@@ -8,29 +8,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <link rel="stylesheet" href="./realTime.css">
     <script src="./realTime.js"></script>
 </head>
 
 <body>
-    <button id="back">돌아가기.</button>
-    <h1>real Time</h1>
-
-    <div class="realTimePage">
-        <div class="w3-cell-row">
-
-            <div id="osanToLg" class="w3-container w3-red w3-cell">
-                <p class="w3-center">오산역 -> LG</p>
-            </div>
-
-            <div id="lgToOsan" class="w3-container w3-green w3-cell">
-                <p class="w3-center">LG -> 오산역</p>
-            </div>
-
+    <div class="realTimePage bgimg w3-display-container w3-animate-opacity w3-text-white">
+        <div id="back" class="w3-display-topleft w3-padding-large w3-xlarge">
+            Home
         </div>
-        <h1 id="timeDisplay" class="w3-center"></h1>
+        <div class="w3-display-topmiddle" style="margin-top : 80px;">
+            <div class="w3-container w3-cell">
+                <button id="osanToLg" class="w3-button w3-block w3-teal">오산->LG&nbsp;&nbsp;&nbsp;</button>
+            </div>
+            <div class="w3-container w3-cell">
+                <button id="lgToOsan" class="w3-button w3-block w3-red">LG->오산</button>
+            </div>
+        </div>
+        <!-- <h1 id="timeDisplay" class="w3-center"></h1> -->
+        <div class="w3-display-middle">
+            <h2 id = "timeDisplay" class="w3-animate-top w3-center">Click the button</h2>
+            <hr class="w3-border-grey" style="margin:auto;width:40%">
+            <p id="rest" class="w3-large w3-center" style="display:none;">남았습니다.</p>
+        </div>
+        <div class="w3-display-bottomleft w3-padding-large">
+            Contact us <a href="https://github.com/KimJunYeop/BusTime" target="_blank">jy</a>
+        </div>
     </div>
-
 </body>
-
 </html>

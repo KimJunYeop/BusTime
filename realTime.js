@@ -100,6 +100,7 @@ function displayTimeModule(busTimeArray) {
         $("#timeDisplay").html('버스가 출발했어요. 다음차를 이용하세요.');
     } else {
         $("#timeDisplay").html(diffTimeMinute + '분 ');
-        $("#timeDisplay").append(diffTimeSecond + '초 남았습니다');
+        $("#timeDisplay").append(diffTimeSecond + '초');
+        $("#rest").show();
     }
 }
