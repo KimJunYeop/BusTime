@@ -18,12 +18,14 @@ function realTimeBind() {
     $("#osanToLg").unbind().bind('click', function () {
         console.log('osanToLg')
         clearInterval(_realTimeInterval);
+        displayTimeOsanToLg();
         _realTimeInterval = setInterval(displayTimeOsanToLg, 1000);
     })
 
     $("#lgToOsan").unbind().bind('click', function () {
         console.log('lgToOsan');
         clearInterval(_realTimeInterval);
+        displayTimeLgToOsan();
         _realTimeInterval = setInterval(displayTimeLgToOsan, 1000);
     });
 }

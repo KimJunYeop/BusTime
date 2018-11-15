@@ -9,7 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./totalTime.css">
     <script src="./totalTime.js"></script>
     <style>
         body {
@@ -19,21 +20,32 @@
 </head>
 
 <body>
-    <button id="backHome">돌아가기.</button>
-    <h1>Total Time</h1>
+    <i id = "backHome" class="fa fa-home w3-xxxlarge w3-margin"></i>
+    <h1 class="w3-jumbo"><b>Total Time</b></h1>
     <div id="contents">
         <div id="mainPage">
             <!-- <img src="./bus_autobus-512.png" class="w3-round bus" alt="Norway"> -->
             <div class="w3-cell-row">
                 <div class="w3-container w3-cell">
-                    <button id="week" class="w3-button w3-block w3-red">(주중)</button>
+                    <button id="week" class="w3-button w3-block w3-red">주중</button>
                 </div>
                 <div class="w3-container w3-cell">
-                    <button id="weekend" class="w3-button w3-block w3-teal">(주말)</button>
+                    <button id="weekend" class="w3-button w3-block w3-teal">주말</button>
                 </div>
             </div>
             <div class="w3-cell-row w3-responsive w3-margin-top w3-margin-bottom">
-                <table id="weekTable" class="w3-table-all w3-card-4">
+                <table id="weekTable" class="w3-table-all w3-card-4 w3-centered" style="display:none;">
+                    <thead>
+                        <tr>
+                            <th>Osan to LG</th>
+                            <th>LG to Osan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <table id="weekendTable" class="w3-table-all w3-card-4 w3-centered" style="display:none;">
                     <thead>
                         <tr>
                             <th>Osan to LG</th>

@@ -5,12 +5,33 @@ var timeLgToOsanWeekend = [910, 1010, 1110, 1210, 1240, 1330, 1410, 1510, 1610, 
 var timeOsanToLgWeekend = [840, 925, 1025, 1125, 1225, 1255, 1345, 1425, 1525, 1745, 1815, 1845, 1915, 1945, 2015, 2045, 2115, 2130, 2145, 2200, 2215, 2230, 2245, 2300, 2315];
 
 $(document).ready(function () {
-    console.log('timeLgToOsanWeekDay length : ', timeLgToOsanWeekDay.length);
-    console.log('timeOasnToLgWeekDay length : ', timeOasnToLgWeekDay.length);
-    console.log('timeLgToOsanWeekend length : ', timeLgToOsanWeekend.length);
-    console.log('timeOsanToLgWeekend length : ', timeOsanToLgWeekend.length);
+    initTotalTimeTable();
     totalTimeBind();
 });
+
+function initTotalTimeTable() {
+    var html = '';
+    var i;
+    //week
+    for (i = 0; i < 31; i++) {
+        html += '<tr>';
+        html += '<td>'+timeOasnToLgWeekDay[i]+'</td>'
+        html += '<td>'+timeLgToOsanWeekDay[i]+'</td>';
+        html += '</tr>'
+        $('#weekTable > tbody:last').append(html);
+        html = '';
+    }
+
+    //weekend
+    for (i = 0; i < 25; i++) {
+        html += '<tr>';
+        html += '<td>'+timeOsanToLgWeekend[i]+'</td>'
+        html += '<td>'+timeLgToOsanWeekend[i]+'</td>';
+        html += '</tr>'
+        $('#weekendTable > tbody:last').append(html);
+        html = '';
+    }
+}
 
 function totalTimeBind() {
     $("#backHome").unbind().bind('click', function () {
@@ -18,35 +39,20 @@ function totalTimeBind() {
     });
 
     $("#week").unbind().bind('click', function () {
-        $('#weekTable > tbody').empty();
         displayTable(1);
     })
 
     $("#weekend").unbind().bind('click', function () {
-        $('#weekTable > tbody').empty();
         displayTable(2);
     })
 }
 
 function displayTable(num) {
-    var html = '';
     if(num == 1) {
-        for (var i = 0; i < 31; i++) {
-            html += '<tr>';
-            html += '<td>'+timeOasnToLgWeekDay[i]+'</td>'
-            html += '<td>'+timeLgToOsanWeekDay[i]+'</td>';
-            html += '</tr>'
-            $('#weekTable > tbody:last').append(html);
-            html = '';
-        }
+        $("#weekendTable").hide();
+        $("#weekTable").show();
     } else if(num == 2) {
-        for (var i = 0; i < 25; i++) {
-            html += '<tr>';
-            html += '<td>'+timeOsanToLgWeekend[i]+'</td>'
-            html += '<td>'+timeLgToOsanWeekend[i]+'</td>';
-            html += '</tr>'
-            $('#weekTable > tbody:last').append(html);
-            html = '';
-        }
+        $("#weekTable").hide();
+        $("#weekendTable").show();
     }
 }

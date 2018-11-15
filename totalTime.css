@@ -1,0 +1,18 @@
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+
+#weekTable {
+    width : 80%;
+    margin : 0 auto;
+    border-collapse: collapse;
+}
+
+#weekendTable { 
+    width : 80%;
+    margin : 0 auto;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}

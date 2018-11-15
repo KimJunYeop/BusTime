@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,25 +11,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="./main.js"></script>
 </head>
+
 <body>
     <button id="backHome" class="realTimePage">돌아가기</button>
     <div id="contents">
+        <!-- Header -->
+        <div class="w3-container" style="margin-top:80px" id="showcase">
+                <h1 class="w3-jumbo"><b>안녕하세요</b></h1>
+                <h2 class="w3-margin-left"><b>버스 시간표를</b></h2>
+                <h2 class="w3-margin-left"><b>정리했습니다.</b></h2>
+                <h1 class="w3-xxxlarge w3-text-red"><b>Clcik the button</b></h1>
+            <hr style="width:50px;border:5px solid red" class="w3-round">
+        </div>
+
         <div id="mainPage">
-            <div>
-                <h1>안녕하세요.</h1>
-                <h2>버스 시간표를 정리했습니다.</h1>
-            </div>
             <!-- <img src="./bus_autobus-512.png" class="w3-round bus" alt="Norway"> -->
             <div class="w3-cell-row">
                 <div class="w3-container w3-cell">
-                    <button id="realTime" class="w3-button w3-block w3-teal">(실시간)&nbsp;&nbsp;&nbsp;</button>
+                    <button id="realTime" class="w3-button w3-block w3-teal">Real Time&nbsp;&nbsp;&nbsp;</button>
                 </div>
                 <div class="w3-container w3-cell">
-                    <button id="totalTime" class="w3-button w3-block w3-red">(전체시간표)</button>
+                    <button id="totalTime" class="w3-button w3-block w3-red">Total Time Table</button>
                 </div>
             </div>
         </div>
 
     </div>
 </body>
+
 </html>
