@@ -12,15 +12,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./totalTime.css">
     <script src="./totalTime.js"></script>
-    <style>
-        body {
-            min-height: 1700px;
-        }
-    </style>
 </head>
 
 <body>
-    <i id = "backHome" class="fa fa-home w3-xxxlarge w3-margin"></i>
+    <i id="backHome" class="fa fa-home w3-xxxlarge w3-margin"></i>
     <h1 class="w3-jumbo"><b>Total Time</b></h1>
     <div id="contents">
         <div id="mainPage">
@@ -38,28 +33,38 @@
                     <b>Please click the button.</b>
                 </div>
 
-                <table id="weekTable" class="w3-table-all w3-card-4 w3-centered" style="display:none;">
-                    <thead>
-                        <tr>
-                            <th>Osan <i class="fa fa-arrow-right"></i> LG</th>
-                            <th>LG <i class="fa fa-arrow-right"></i> Osan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div id="weekTableDiv" class="table-box-wrap" style="display:none;">
+                    <div class="table-box">
+                        <table id="weekTable" class="">
+                            <thead>
+                                <tr>
+                                    <th>Osan <i class="fa fa-arrow-right"></i> LG</th>
+                                    <th>LG <i class="fa fa-arrow-right"></i> Osan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                    </tbody>
-                </table>
-                <table id="weekendTable" class="w3-table-all w3-card-4 w3-centered" style="display:none;">
-                    <thead>
-                        <tr>
-                            <th>Osan <i class="fa fa-arrow-right"></i> LG</th>
-                            <th>LG <i class="fa fa-arrow-right"></i> Osan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
-                    </tbody>
-                </table>
+                <div id="weekendTableDiv" class="table-box-wrap" style="display:none;">
+                    <div class="table-box">
+                        <table id="weekendTable" class="">
+                            <thead>
+                                <tr>
+                                    <th>Osan <i class="fa fa-arrow-right"></i> LG</th>
+                                    <th>LG <i class="fa fa-arrow-right"></i> Osan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
