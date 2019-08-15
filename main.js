@@ -18,6 +18,6 @@ function busBind() {
     });
 
     $("#recomendMenu").unbind().on("click", function() {
-        window.location.href = './recommendMenu.html'
+        window.location.href = './junMat.html'
     })
 }
