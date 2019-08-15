@@ -1,5 +1,5 @@
 var timeLgToOsanWeekDay = ['8:20', '9:20', '10:20', '11:20', '12:10', '13:20', '14:20', '15:10', '16:20', '17:30', '17:45', '18:00', '18:15', '18:30', '18:45', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '23:10'];
-var timeOasnToLgWeekDay = ['8:40', '9:35', '10:35', '11:35', '12:25', '13:35', '14:35', '15:25', '16:35', '17:45', '18:15', '18:45', '19:15', '19:45', '20:15', '20:45', '21:15', '21:45', '22:15'];
+var timeOasnToLgWeekDay = ['8:40', '9:35', '10:35', '11:35', '12:25', '13:35', '14:35', '15:25', '16:35', '17:45', 'X', '18:15', 'X', '18:45', 'X', '19:15', '19:45', '20:15', '20:45', '21:15', '21:45', '22:15', 'X'];
 
 var timeLgToOsanWeekend = ['8:20', '9:20', '10:20', '11:20', '12:10', '13:20', '14:20', '15:10', '16:20', '17:30', '18:00', '19:00', '20:00', '21:00', '22:00'];
 var timeOsanToLgWeekend = ['8:40', '9:35', '10:35', '11:35', '12:25', '13:35', '14:35', '15:25', '16:36', '17:56', '18:15', '19:15', '20:15', '21:15', '22:15'];
@@ -15,14 +15,14 @@ function initTotalTimeTable() {
     var html = '';
     var i;
 
-    
+
     var nextTime;
     var nextTimeOsanToLg;
     var nextTimeLgToOsan;
-   
+
 
     //week
-    for (i = 0; i < 31; i++) {
+    for (i = 0; i < 23; i++) {
         html += '<tr>';
         html += '<td>' + timeOasnToLgWeekDay[i] + '</td>'
         html += '<td>' + timeLgToOsanWeekDay[i] + '</td>';
@@ -32,7 +32,7 @@ function initTotalTimeTable() {
     }
 
     //weekend
-    for (i = 0; i < 25; i++) {
+    for (i = 0; i < 15; i++) {
         html += '<tr>';
         html += '<td>' + timeOsanToLgWeekend[i] + '</td>'
         html += '<td>' + timeLgToOsanWeekend[i] + '</td>';
@@ -50,6 +50,11 @@ function tableColor() {
     var day = new Date();
     var hour = day.getHours();
     var minute = day.getMinutes();
+
+    if(minute < 10) {
+        minute = "0" + minute;
+    }
+
     var currentTime = Number(hour.toString() + minute.toString());
 
     nextTimeOsanToLgWeek = timeOasnToLgWeekDay.filter(val => {
@@ -92,10 +97,10 @@ function tableColor() {
     })
 
     $("#weekendTable tr").each(function () {
-        var tableValue = $(this).find("td:nth-child(2)").html();
+        var tableValue = $(this).find("td:first").html();
         nextTimeOsanToLgWeekend.forEach(val => {
             if (tableValue == val) {
-                $(this).find("td:nth-child(2)").addClass("w3-blue");
+                $(this).find("td:first").addClass("w3-blue");
             }
         });
     })
@@ -108,8 +113,6 @@ function tableColor() {
             }
         });
     })
-
-
 }
 
 function totalTimeBind() {
@@ -142,13 +145,14 @@ function displayTable(num) {
 }
 
 function focus(num) {
+    var rowpos;
     if (num == 1) {
-
-
-
+        var $blueWeek = $("#weekTableDiv").find(".w3-blue");
+        rowpos = $blueWeek.position();
+        $('div').scrollTop(rowpos.top);
     } else {
-
-
-
+        var $blueWeekend = $("#weekendTableDiv").find(".w3-blue");
+        rowpos = $blueWeekend.position();
     }
+    $('div').scrollTop(rowpos.top);
 }

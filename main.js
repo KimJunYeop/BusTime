@@ -16,4 +16,8 @@ function busBind() {
     $("#totalTime").unbind().bind('click', function () {
         window.location.href = './totalTime.html'
     });
+
+    $("#recomendMenu").unbind().on("click", function() {
+        window.location.href = './recommendMenu.html'
+    })
 }
